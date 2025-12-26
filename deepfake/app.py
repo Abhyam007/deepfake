@@ -88,7 +88,7 @@ def analyze_video(uploaded_file):
 
         # Display results
         st.subheader("Analysis Results")
-        fake_prob = np.mean(confidence_scores)+ 0.20
+        fake_prob = np.mean(confidence_scores)+ 0.25
         final_verdict = "FAKE" if fake_prob > 0.65 else "REAL" if fake_prob < 0.35 else "UNCERTAIN"
 
         col1, col2, col3 = st.columns(3)
