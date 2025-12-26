@@ -39,7 +39,7 @@ def display_video_metadata(video_path: str):
         metadata = reader.metadata()
         
         video_info = {
-            "Resolution": f"{metadata['shape'][1]}x{metadata['shape'][0]}",
+            #"Resolution": f"{metadata['shape'][1]}x{metadata['shape'][0]}",
             "Duration": f"{reader.properties().duration:.2f} seconds",
             "Frame Rate": f"{metadata['fps']:.2f} FPS"
         }
