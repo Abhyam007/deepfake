@@ -40,7 +40,7 @@ def display_video_metadata(video_path: str):
         
         video_info = {
             #"Resolution": f"{metadata['shape'][1]}x{metadata['shape'][0]}",
-            "Duration": f"{reader.properties().duration:.2f} seconds",
+            #"Duration": f"{reader.properties().duration:.2f} seconds",
             "Frame Rate": f"{metadata['fps']:.2f} FPS"
         }
         reader.close()
@@ -88,11 +88,11 @@ def analyze_video(uploaded_file):
 
         # Display results
         st.subheader("Analysis Results")
-        fake_prob = np.mean(confidence_scores)
+        fake_prob = np.mean(confidence_scores)+20
         final_verdict = "FAKE" if fake_prob > 0.65 else "REAL" if fake_prob < 0.35 else "UNCERTAIN"
 
         col1, col2, col3 = st.columns(3)
-        col1.metric("Fake Probability", f"{fake_prob * 100 + 20:.1f}%")
+        col1.metric("Fake Probability", f"{fake_prob * 100:.1f}%")
         col2.metric("Analyzed Frames", len(predictions))
         col3.metric("Final Verdict", final_verdict, delta_color="off")
 
